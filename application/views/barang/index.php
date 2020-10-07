@@ -19,6 +19,7 @@
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <button type="button" class="btn btn-primary" onclick="window.location.href='<?= site_url(); ?>/barang/add_data';">Tambah</button>
+                                <button type="button" class="btn btn-success" style="margin-left:10px; padding-left:10px;" onclick="window.location.href='<?= site_url(); ?>/barang/print_excel';">Excel</button>
                                 <br>
                                 <br>
                                 <thead>

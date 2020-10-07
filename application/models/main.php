@@ -153,4 +153,14 @@ class main extends CI_MODEL
             return $return;
         }
     }
+    function show_data_barang_excel(){
+        $this->db->select('*');
+        $this->db->from('tbl_barang');
+        $this->db->join('tbl_kegiatan','tbl_barang.id_kegiatan = tbl_kegiatan.id_kegiatan');
+        $this->db->join('tbl_jenis','tbl_barang.id_jenis = tbl_jenis.id_jenis');
+        $this->db->join('tbl_satuan','tbl_barang.id_satuan = tbl_satuan.id_satuan');
+        $this->db->order_by('tbl_jenis.nama_jenis ASC, tbl_barang.nama_barang ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

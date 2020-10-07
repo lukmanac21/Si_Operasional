@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Barang extends CI_Controller
 {
+
     function __construct()
     {
         parent::__construct();
@@ -111,5 +112,106 @@ class Barang extends CI_Controller
 
         $this->main->delete_data('tbl_barang', $where);
         redirect('barang/index');
+    }
+    public function print_excel(){        
+        $data['data']= $this->main->show_data_barang_excel();
+        require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("DISKOMINFO BONDOWOSO");
+        $object->getProperties()->setTitle("Data Barang");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->mergeCells('A1:S1')->setCellValue('A1','DATA ROUTER')->getColumnDimension('A')->setAutoSize(true);
+        $object->getActiveSheet()->mergeCells('A2:S2')->setCellValue('A2','DISKOMINFO BONDOWOSO')->getColumnDimension('A')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('A3','No')->getColumnDimension('A')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('B3','JENIS BARANG')->getColumnDimension('B')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('C3','NAMA BARANG')->getColumnDimension('C')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('D3','KODE KEGIATAN')->getColumnDimension('D')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('E3','NAMA KEGIATAN')->getColumnDimension('E')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('F3','MODEL NO')->getColumnDimension('F')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('G3','UPC')->getColumnDimension('G')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('H3','H/W VERSI')->getColumnDimension('H')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('I3','CMIIT')->getColumnDimension('I')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('J3','TYPE')->getColumnDimension('J')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('K3','K/G')->getColumnDimension('K')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('L3','NAMA PRODUK')->getColumnDimension('L')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('M3','PLUG')->getColumnDimension('M')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('N3','POWER')->getColumnDimension('N')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('O3','FREKUENSI')->getColumnDimension('O')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('P3','SATUAN')->getColumnDimension('P')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('Q3','SERI BARANG')->getColumnDimension('Q')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('R3','MAC BARANG')->getColumnDimension('R')->setAutoSize(true);
+        $object->getActiveSheet()->setCellValue('S3','KETERANGAN')->getColumnDimension('S')->setAutoSize(true);
+
+        $baris = 4;
+        $no = 1;
+        
+        foreach($data['data'] as $row){
+            $object->getActiveSheet()->setCellValue('A'.$baris,$no++)->getColumnDimension('A')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('B'.$baris,$row->nama_jenis)->getColumnDimension('B')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('C'.$baris,$row->nama_barang)->getColumnDimension('C')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('D'.$baris,$row->kode_kegiatan)->getColumnDimension('D')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('E'.$baris,$row->nama_kegiatan)->getColumnDimension('E')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('F'.$baris,$row->model_barang)->getColumnDimension('F')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('G'.$baris,$row->upc_barang)->getColumnDimension('G')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('H'.$baris,$row->hwversi_barang)->getColumnDimension('H')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('I'.$baris,$row->cmiit_barang)->getColumnDimension('I')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('J'.$baris,$row->type_barang)->getColumnDimension('J')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('K'.$baris,$row->kg_barang)->getColumnDimension('K')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('L'.$baris,$row->produk_barang)->getColumnDimension('L')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('M'.$baris,$row->plug_barang)->getColumnDimension('M')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('N'.$baris,$row->power_barang)->getColumnDimension('N')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('O'.$baris,$row->frek_barang)->getColumnDimension('O')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('P'.$baris,$row->nama_satuan)->getColumnDimension('P')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('Q'.$baris,$row->seri_barang)->getColumnDimension('Q')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('R'.$baris,$row->mac_barang)->getColumnDimension('R')->setAutoSize(true);
+            $object->getActiveSheet()->setCellValue('S'.$baris,date('Y',strtotime($row->tgl_barang)))->getColumnDimension('S')->setAutoSize(true);
+        
+            $baris++;
+        }
+        $styleArrayHeader = array(
+            'borders' => array(
+                    'top' => array(
+                            'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    ),
+                    'left' => array(
+                        'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    ),
+                    'right' => array(
+                        'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    ),
+                    'bottom' => array(
+                        'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                ),
+            ),
+                'alignment' => array(
+                    'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+                )
+        );
+        $from = "A1"; // or any value
+        $to = "S2"; // or any value
+        $object->getDefaultStyle()->applyFromArray($styleArrayHeader);
+        $object->getActiveSheet()->getStyle("$from:$to")->getFont()->setBold( true );
+
+        $styleArray = array(
+            'borders' => array(
+                'allborders' => array(
+                  'style' => PHPExcel_Style_Border::BORDER_THIN
+                )
+            ),
+            'alignment' => array(
+                'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT,
+        )
+    );
+        $filename = "Data_Barang".'.xlsx';
+        $object->getDefaultStyle()->applyFromArray($styleArray);
+        $object->getActiveSheet()->setTitle("Data Barang");
+        $object->getActiveSheet()->calculateColumnWidths();
+        header('Content-Type: application/vnd.openxmlformats-officedocument.speadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="'.$filename.'"');
+        header('Cache-Control: max-age=0');
+        $writer = PHPExcel_IOFactory::createwriter($object,'Excel2007');
+        $writer->save('php://output');
+        exit;
     }
 }
