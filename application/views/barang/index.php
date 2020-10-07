@@ -25,7 +25,6 @@
                                     <tr>
                                         <th>Gambar Barang</th>
                                         <th>Jenis Barang</th>
-                                        <th>Kegiatan</th>
                                         <th>Tanggal Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Harga Barang</th>
@@ -38,7 +37,6 @@
                                         <tr>
                                             <td><button class="btn btn-default" data-toggle="modal" data-target="#imageModal"><img width="100" height="100" src="<?= base_url() ?>assets/img/barang/<?= $row_barang->img_barang ?>"></button></td>
                                             <td><?= $row_barang->nama_jenis ?></td>
-                                            <td><?= $row_barang->nama_kegiatan ?></td>
                                             <td><?= date("d F Y", strtotime($row_barang->tgl_barang)) ?></td>
                                             <td><?= $row_barang->nama_barang ?></td>
                                             <td><?= $row_barang->harga_barang ?></td>

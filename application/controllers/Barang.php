@@ -13,7 +13,8 @@ class Barang extends CI_Controller
     {
         $id_role                     = $this->session->userdata('id_role');
         $data['menu']                 = $this->main->get_menu_selected($id_role);
-        $data['barang']             = $this->main->get_data_two('tbl_barang', 'tbl_jenis', 'tbl_barang.id_jenis=tbl_jenis.id_jenis', 'tbl_kegiatan', 'tbl_barang.id_kegiatan=tbl_kegiatan.id_kegiatan');
+        $data['barang']             = $this->main->get_data_join('tbl_barang', 'tbl_jenis', 'tbl_barang.id_jenis=tbl_jenis.id_jenis');
+        
         $this->load->view('barang/index', $data);
     }
     public function add_data()

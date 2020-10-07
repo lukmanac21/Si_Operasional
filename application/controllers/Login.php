@@ -32,7 +32,7 @@ class Login extends CI_Controller {
         }else{
                                 ?>
                                 <script type="text/javascript">alert("Email atau Password salah!");
-                                window.location.href = "http://localhost/SI-Operasional/index.php/Login/index";
+                                window.location.href = "http://localhost/Si_Operasional/index.php/Login/index";
                                 </script>
                                 <?php
         }
