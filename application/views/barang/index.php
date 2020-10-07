@@ -24,11 +24,11 @@
                                 <br>
                                 <thead>
                                     <tr>
-                                        <th>Gambar Barang</th>
                                         <th>Jenis Barang</th>
                                         <th>Tanggal Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Harga Barang</th>
+                                        <th style="text-align:center;">Gambar Barang</th>
                                         <th style="text-align:center;">Ubah</th>
                                         <th style="text-align:center;">Hapus</th>
                                     </tr>
@@ -36,11 +36,11 @@
                                 <tbody>
                                     <?php foreach ($barang as $row_barang) { ?>
                                         <tr>
-                                            <td><button class="btn btn-default" data-toggle="modal" data-target="#imageModal"><img width="100" height="100" src="<?= base_url() ?>assets/img/barang/<?= $row_barang->img_barang ?>"></button></td>
                                             <td><?= $row_barang->nama_jenis ?></td>
                                             <td><?= date("d F Y", strtotime($row_barang->tgl_barang)) ?></td>
                                             <td><?= $row_barang->nama_barang ?></td>
                                             <td><?= $row_barang->harga_barang ?></td>
+                                            <td style="text-align:center;"> <a data-toggle="modal" data-target="#detail<?=$row_barang->id_barang;?>" class="btn btn-warning btn-sm"> Detail Foto</a></td>
                                             <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('barang/edit_data/') . $row_barang->id_barang; ?>" class="btn btn-info"> Ubah</a</td> <td style="text-align:center;"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row_barang->id_barang ?>"> Hapus</button</td> </tr> <?php } ?> </tbody> </table> </div> </div> </section> <?php foreach ($barang as $row_barang) { ?> <div class="modal fade" id="delete<?= $row_barang->id_barang ?>">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
@@ -73,25 +73,26 @@
 
 
                     <!-- Modal -->
-                    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Image Gambar</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="<?= base_url() ?>assets/img/barang/<?= $row_barang['img_barang'] ?>" alt="">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <?php foreach ($barang as $row_barang) { ?>
+                <div class="modal fade" id="detail<?php echo $row_barang->id_barang;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <form class="form-horizontal">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel">Data Gambar</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                               <img src="<?= base_url ()?>assets/img/barang/<?php  echo $row_barang->img_barang;?>" width="100%" class="img-thumbnail">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                <?php } ?>
 </body>
 
 </html>

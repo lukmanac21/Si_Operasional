@@ -172,16 +172,16 @@ class Barang extends CI_Controller
         $styleArrayHeader = array(
             'borders' => array(
                     'top' => array(
-                            'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                            'style' => PHPExcel_Style_Border::BORDER_THIN,
                     ),
                     'left' => array(
-                        'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        'style' => PHPExcel_Style_Border::BORDER_THIN,
                     ),
                     'right' => array(
-                        'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        'style' => PHPExcel_Style_Border::BORDER_THIN,
                     ),
                     'bottom' => array(
-                        'style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        'style' => PHPExcel_Style_Border::BORDER_THIN,
                 ),
             ),
                 'alignment' => array(
