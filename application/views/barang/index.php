@@ -40,7 +40,7 @@
                                             <td><?= date("d F Y", strtotime($row_barang->tgl_barang)) ?></td>
                                             <td><?= $row_barang->nama_barang ?></td>
                                             <td><?= $row_barang->harga_barang ?></td>
-                                            <td style="text-align:center;"> <a data-toggle="modal" data-target="#detail<?=$row_barang->id_barang;?>" class="btn btn-warning btn-sm"> Detail Foto</a></td>
+                                            <td style="text-align:center;"> <a style="color:white;" data-toggle="modal" data-target="#detail<?=$row_barang->id_barang;?>" class="btn btn-dark"> Detail Foto</a></td>
                                             <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('barang/edit_data/') . $row_barang->id_barang; ?>" class="btn btn-info"> Ubah</a</td> <td style="text-align:center;"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row_barang->id_barang ?>"> Hapus</button</td> </tr> <?php } ?> </tbody> </table> </div> </div> </section> <?php foreach ($barang as $row_barang) { ?> <div class="modal fade" id="delete<?= $row_barang->id_barang ?>">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
