@@ -1,0 +1,248 @@
+Looking for git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /var/www/html/Si_Operasional
+> git status -z -u
+> git check-ignore -v -z --stdin
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :application/config/config.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/config.php
+> git cat-file -s 9117f483897230befc0f767ba09c47d0190a6433
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/config/database.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/database.php
+> git cat-file -s 72f500a23e1af5bae4181606636d4df6c1248c69
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git show --textconv :application/controllers/Jenis.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Jenis.php
+> git cat-file -s 0e440eb9126186eeb2c9061fdc05ee78502972da
+> git check-ignore -v -z --stdin
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git show --textconv :application/config/database.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/database.php
+> git cat-file -s 72f500a23e1af5bae4181606636d4df6c1248c69
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git show --textconv :application/controllers/Anggaran.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Anggaran.php
+> git cat-file -s 0db5c410c27d6bc1188fdc378ecccd6b336b4a32
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/controllers/Login.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Login.php
+> git cat-file -s b8707b3b357f58a7251b0c98404b4b4396cd48ce
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/config/config.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/config.php
+> git cat-file -s 9117f483897230befc0f767ba09c47d0190a6433
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/config/autoload.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/autoload.php
+> git cat-file -s 0cdc152a407329b4fb7caf20fc94d1f5c954cc83
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/controllers/Login.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Login.php
+> git cat-file -s b8707b3b357f58a7251b0c98404b4b4396cd48ce
+> git show --textconv :application/config/autoload.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/autoload.php
+> git cat-file -s 0cdc152a407329b4fb7caf20fc94d1f5c954cc83
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/config/config.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/config.php
+> git cat-file -s 9117f483897230befc0f767ba09c47d0190a6433
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git show --textconv :application/config/autoload.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/autoload.php
+> git cat-file -s 0cdc152a407329b4fb7caf20fc94d1f5c954cc83
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git show --textconv :application/controllers/Login.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Login.php
+> git cat-file -s b8707b3b357f58a7251b0c98404b4b4396cd48ce
+> git show --textconv :application/config/autoload.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/autoload.php
+> git cat-file -s 0cdc152a407329b4fb7caf20fc94d1f5c954cc83
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/controllers/Login.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Login.php
+> git cat-file -s b8707b3b357f58a7251b0c98404b4b4396cd48ce
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /var/www/html/Si_Operasional/application/controllers/Login.php
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/config/autoload.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/autoload.php
+> git cat-file -s 0cdc152a407329b4fb7caf20fc94d1f5c954cc83
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :.gitignore
+> git ls-files --stage -- /var/www/html/Si_Operasional/.gitignore
+> git cat-file -s 269044ea9ead8b9e115b5e325f3d1fe961f7cd11
+> git show --textconv :application/config/autoload.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/config/autoload.php
+> git cat-file -s 0cdc152a407329b4fb7caf20fc94d1f5c954cc83
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git show --textconv :application/controllers/Login.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Login.php
+> git cat-file -s b8707b3b357f58a7251b0c98404b4b4396cd48ce

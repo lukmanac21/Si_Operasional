@@ -1,0 +1,3 @@
+[2020-11-02 10:00:32.065] [sharedprocess] [info] main {"machineId":"96f27645891e81ae768ff556f5960ca75d0992a283a960f3f7ed0c83a295dc04","windowId":2}
+[2020-11-02 10:00:32.109] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/var/www/html/Si_Operasional/~/.vscode-root/User/snippets'
+[2020-11-02 10:01:12.084] [sharedprocess] [info] Starting to clean up unused language packs.

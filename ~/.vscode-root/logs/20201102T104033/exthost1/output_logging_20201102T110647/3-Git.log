@@ -1,0 +1,24 @@
+Looking for git in: git
+Using git 2.25.1 from git
+> git rev-parse --git-dir
+Open repository: /var/www/html/Si_Operasional
+> git status -z -u
+> git check-ignore -v -z --stdin
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/origin/master', is most likely packed.
+> git config --get commit.template
+> git show --textconv :application/controllers/Login.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/Login.php
+> git cat-file -s b8707b3b357f58a7251b0c98404b4b4396cd48ce
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git show --textconv :application/models/main.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/main.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git check-ignore -v -z --stdin
+> git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%B -z -n21 -- /var/www/html/Si_Operasional/application/models/main.php
