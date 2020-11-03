@@ -20,7 +20,7 @@ class Barang extends CI_Controller
     }
     public function add_data()
     {
-        $id_role                     = $this->session->userdata('id_role');
+        $id_role                      = $this->session->userdata('id_role');
         $data['menu']                 = $this->main->get_menu_selected($id_role);
         $this->load->view('barang/tambah', $data);
     }
@@ -61,10 +61,10 @@ class Barang extends CI_Controller
     }
     public function edit_data($id_barang)
     {
-        $id_role                             = $this->session->userdata('id_role');
+        $id_role                              = $this->session->userdata('id_role');
         $data['menu']                         = $this->main->get_menu_selected($id_role);
-        $where                                 = ['id_barang' => $id_barang];
-        $data['barang']                     = $this->main->get_data_where('tbl_barang', $where);
+        $where                                = ['id_barang' => $id_barang];
+        $data['barang']                       = $this->main->get_data_where('tbl_barang', $where);
         $this->load->view('barang/ubah', $data);
     }
     public function update_data()
