@@ -273,3 +273,62 @@ Warning: Failed to watch ref '/var/www/html/Si_Operasional/.git/refs/remotes/ori
 > git show --textconv :application/controllers/User.php
 > git ls-files --stage -- /var/www/html/Si_Operasional/application/controllers/User.php
 > git cat-file -s d9de8e3b07f83fdf3cc53bc56fb0a5637ce44d37
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse si-operasional
+> git rev-parse --symbolic-full-name si-operasional@{u}
+> git rev-list --left-right si-operasional...refs/remotes/origin/si-operasional
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse si-operasional
+> git rev-parse --symbolic-full-name si-operasional@{u}
+> git rev-list --left-right si-operasional...refs/remotes/origin/si-operasional
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse si-operasional
+> git rev-parse --symbolic-full-name si-operasional@{u}
+> git rev-list --left-right si-operasional...refs/remotes/origin/si-operasional
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse si-operasional
+> git rev-parse --symbolic-full-name si-operasional@{u}
+> git rev-list --left-right si-operasional...refs/remotes/origin/si-operasional
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git show --textconv :application/models/Main_model.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/Main_model.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse si-operasional
+> git rev-parse --symbolic-full-name si-operasional@{u}
+> git rev-list --left-right si-operasional...refs/remotes/origin/si-operasional
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse si-operasional
+> git rev-parse --symbolic-full-name si-operasional@{u}
+> git rev-list --left-right si-operasional...refs/remotes/origin/si-operasional
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse si-operasional
+> git rev-parse --symbolic-full-name si-operasional@{u}
+> git rev-list --left-right si-operasional...refs/remotes/origin/si-operasional
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git show --textconv :application/models/Main_model.php
+> git ls-files --stage -- /var/www/html/Si_Operasional/application/models/Main_model.php
+> git cat-file -s a80d93e558edd2be4897fa51897d26c4fb3b3ea8

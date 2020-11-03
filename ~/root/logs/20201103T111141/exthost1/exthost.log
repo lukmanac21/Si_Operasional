@@ -44,3 +44,9 @@
 [2020-11-03 11:13:05.995] [exthost] [info] ExtensionService#loadCommonJSModule file:///root/.vscode/extensions/bmewburn.vscode-intelephense-client-1.5.4/lib/extension
 [2020-11-03 11:13:06.059] [exthost] [info] ExtensionService#_doActivateExtension small.php-ci {"startup":false,"extensionId":{"value":"small.php-ci","_lower":"small.php-ci"},"activationEvent":"onLanguage:php"}
 [2020-11-03 11:13:06.060] [exthost] [info] ExtensionService#loadCommonJSModule file:///root/.vscode/extensions/small.php-ci-0.3.9/out/src/extension
+[2020-11-03 14:08:02.371] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"extensionId":{"value":"vscode.configuration-editing","_lower":"vscode.configuration-editing"},"activationEvent":"onLanguage:jsonc"}
+[2020-11-03 14:08:02.371] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/configuration-editing/dist/configurationEditingMain
+[2020-11-03 14:08:02.476] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"extensionId":{"value":"vscode.json-language-features","_lower":"vscode.json-language-features"},"activationEvent":"onLanguage:jsonc"}
+[2020-11-03 14:08:02.476] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/json-language-features/client/dist/node/jsonClientMain
+[2020-11-03 14:08:02.693] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"extensionId":{"value":"vscode.typescript-language-features","_lower":"vscode.typescript-language-features"},"activationEvent":"onLanguage:jsonc"}
+[2020-11-03 14:08:02.693] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
