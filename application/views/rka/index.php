@@ -12,7 +12,7 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Data Master rka</h3>
+            <h3 class="card-title">Data Operasional RKA</h3>
           </div>
           <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
