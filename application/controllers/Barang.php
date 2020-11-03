@@ -7,13 +7,13 @@ class Barang extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('main');
+        $this->load->model('Main_model', 'main');
         $this->load->library('session');
     }
     public function index()
     {
-        $id_role                     = $this->session->userdata('id_role');
-        $data['menu']                 = $this->main->get_menu_selected($id_role);
+        $id_role                    = $this->session->userdata('id_role');
+        $data['menu']               = $this->main->get_menu_selected($id_role);
         $data['barang']             = $this->main->get_data_join('tbl_barang', 'tbl_jenis', 'tbl_barang.id_jenis=tbl_jenis.id_jenis');
         
         $this->load->view('barang/index', $data);
