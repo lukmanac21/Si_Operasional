@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Role extends CI_Controller {
 	function __construct(){
         parent::__construct();
-        $this->load->model('main');
+        $this->load->model('Main_model', 'main');
         $this->load->library('session');
         $this->load->helper('main_helper');
     }
