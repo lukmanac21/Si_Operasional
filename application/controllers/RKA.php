@@ -20,8 +20,8 @@ class RKA extends CI_Controller {
 		$this->load->view('rka/tambah',$data);
 	}
 	public function save_data(){
-        $data['kode_rka'] 	    = $this->input->post('kode_rka');
-        $data['uraian_rka']    = $this->input->post('uraian_rka');
+        $data['nama_rka'] 	    = $this->input->post('nama_rka');
+        $data['pagu']    = $this->input->post('pagu');
 		
 		$this->main->insert_data('tbl_rka',$data);
 		redirect('rka/index');
