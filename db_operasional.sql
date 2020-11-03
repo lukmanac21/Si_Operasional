@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2020 at 02:56 AM
+-- Generation Time: Nov 02, 2020 at 02:13 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -368,6 +368,24 @@ INSERT INTO `tbl_role` (`id_role`, `id_dinas`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_satuan`
+--
+
+CREATE TABLE `tbl_satuan` (
+  `id_satuan` int(11) NOT NULL,
+  `nama_satuan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_satuan`
+--
+
+INSERT INTO `tbl_satuan` (`id_satuan`, `nama_satuan`) VALUES
+(1, 'paket');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_sub_menu`
 --
 
@@ -585,6 +603,12 @@ ALTER TABLE `tbl_role`
   ADD PRIMARY KEY (`id_role`);
 
 --
+-- Indexes for table `tbl_satuan`
+--
+ALTER TABLE `tbl_satuan`
+  ADD PRIMARY KEY (`id_satuan`);
+
+--
 -- Indexes for table `tbl_sub_menu`
 --
 ALTER TABLE `tbl_sub_menu`
@@ -677,6 +701,12 @@ ALTER TABLE `tbl_rekening`
 --
 ALTER TABLE `tbl_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_satuan`
+--
+ALTER TABLE `tbl_satuan`
+  MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_sub_menu`
