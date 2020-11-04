@@ -28,14 +28,14 @@
                   <div class="form-group row">
                       <label class="col-sm-1 col-form-label">Kode rka</label>
                       <div class="col-sm-11">
-                      <input type="text" class="form-control" name="kode_rka" placeholder="Kode rka" required value="<?= $row_rka->kode_rka;?>">
+                      <input type="text" class="form-control" name="nama_rka" placeholder="Kode rka" required value="<?= $row_rka->nama_rka;?>">
                       <input type="hidden" class="form-control" name="id_rka" value="<?= $row_rka->id_rka;?>">
                       </div>
                   </div>
                   <div class="form-group row">
                       <label class="col-sm-1 col-form-label">Uraian rka</label>
                       <div class="col-sm-11">
-                      <input type="text" class="form-control" name="uraian_rka" placeholder="Uraian rka" required value="<?= $row_rka->uraian_rka;?>">
+                      <input type="number" class="form-control" name="pagu" placeholder="Pagu" required value="<?= $row_rka->pagu;?>">
                       </div>
                   </div>
                   </div>
