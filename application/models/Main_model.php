@@ -42,14 +42,22 @@ class Main_model extends CI_Model
         $query = $this->db->select('*')->from($table)->join($table_join, $where)->get();
         return $query->result();
     }
-    function get_data_two($table, $table_join, $where, $table_joins, $wheres)
+    function get_data_two($table, $table_join, $where, $table_joins, $wheres, $select = null)
     {
-        $query = $this->db->select('*')->from($table)->join($table_join, $where)->join($table_joins, $wheres)->get();
+        if ($select == null) {
+            $query = $this->db->select('*')->from($table)->join($table_join, $where)->join($table_joins, $wheres)->get();
+        } else {
+            $query = $this->db->select($select)->from($table)->join($table_join, $where)->join($table_joins, $wheres)->get();
+        }
         return $query->result();
     }
-    function get_data_three($table, $table_join_one, $where_one, $table_join_two, $where_two, $table_join_three, $where_three)
+    function get_data_three($table, $table_join_one, $where_one, $table_join_two, $where_two, $table_join_three, $where_three, $select = null)
     {
-        $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->get();
+        if ($select == null) {
+            $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->get();
+        } else {
+            $query = $this->db->select($select)->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->get();
+        }
         return $query->result();
     }
     function get_data_join_where($table, $table_join, $where_join, $where)
@@ -158,12 +166,13 @@ class Main_model extends CI_Model
             return $return;
         }
     }
-    function show_data_barang_excel(){
+    function show_data_barang_excel()
+    {
         $this->db->select('*');
         $this->db->from('tbl_barang');
-        $this->db->join('tbl_kegiatan','tbl_barang.id_kegiatan = tbl_kegiatan.id_kegiatan');
-        $this->db->join('tbl_jenis','tbl_barang.id_jenis = tbl_jenis.id_jenis');
-        $this->db->join('tbl_satuan','tbl_barang.id_satuan = tbl_satuan.id_satuan');
+        $this->db->join('tbl_kegiatan', 'tbl_barang.id_kegiatan = tbl_kegiatan.id_kegiatan');
+        $this->db->join('tbl_jenis', 'tbl_barang.id_jenis = tbl_jenis.id_jenis');
+        $this->db->join('tbl_satuan', 'tbl_barang.id_satuan = tbl_satuan.id_satuan');
         $this->db->order_by('tbl_jenis.nama_jenis ASC, tbl_barang.nama_barang ASC');
         $query = $this->db->get();
         return $query->result();
