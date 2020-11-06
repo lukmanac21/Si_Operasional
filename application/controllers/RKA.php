@@ -14,7 +14,6 @@ class RKA extends CI_Controller
 		$id_role 				    = $this->session->userdata('id_role');
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
 		$data['rka'] 		        = $this->main->get_data('tbl_rka');
-		var_dump($data['rka']);
 		$this->load->view('rka/index', $data);
 	}
 	public function add_data()
@@ -61,5 +60,47 @@ class RKA extends CI_Controller
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
 		$data['detail_rka'] 		= $this->main->get_data_two('tbl_detail_rka', 'tbl_rka', 'tbl_detail_rka.id_rka = tbl_rka.id_rka', 'tbl_rekening', 'tbl_detail_rka.id_rekening = tbl_rekening.id_rekening', 'tbl_detail_rka.id AS id, total, kode_rekening, uraian_rekening');
 		$this->load->view('rka/detailrka', $data);
+	}
+	public function add_detail()
+	{
+		$id_role 				    = $this->session->userdata('id_role');
+		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
+		$data['rka']				= $this->main->get_data('tbl_rka');
+		$data['rekening']			= $this->main->get_data('tbl_rekening');
+		$this->load->view('rka/tambahdetail', $data);
+	}
+	public function save_detail()
+	{
+		$data['id_rka'] 	    = $this->input->post('id_rka');
+		$data['id_rekening']    = $this->input->post('id_rekening');
+
+		$this->main->insert_data('tbl_detail_rka', $data);
+		redirect('rka/index');
+	}
+	public function edit_detail($id_detailrka)
+	{
+		$id_role 				    = $this->session->userdata('id_role');
+		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
+		$data['rka']				= $this->main->get_data('tbl_rka');
+		$data['rekening']			= $this->main->get_data('tbl_rekening');
+		$where 					    = ['id' => $id_detailrka];
+		$data['detail_rka'] 		= $this->main->get_data_where_one_row('tbl_detail_rka', $where);
+		$this->load->view('rka/ubahdetail', $data);
+	}
+	public function update_detail()
+	{
+		$where['id'] 				= $this->input->post('id_detail');
+		$data['id_rka'] 	    	= $this->input->post('id_rka');
+		$data['id_rekening']    	= $this->input->post('id_rekening');
+
+		$this->main->update_data('tbl_detail_rka', $data, $where);
+		redirect('rka/detail_data/' . $this->input->post('id_detail'));
+	}
+	public function delete_detail()
+	{
+		$where['id'] 		= $this->input->post('id');
+
+		$this->main->delete_data('tbl_detail_rka', $where);
+		redirect('rka/detail_data/' . $this->input->post('id'));
 	}
 }
