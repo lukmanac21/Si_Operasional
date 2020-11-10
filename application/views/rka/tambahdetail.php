@@ -25,28 +25,28 @@
                         </div>
                         <div class="card-body">
                             <form class="form-horizontal" role="form" action="<?= site_url('RKA/save_detail'); ?>" method="post">
+                            <?php foreach ($rka as $row_rka) { ?>
                                 <div class="card-body">
-                                    <div class="form-group row">
-                                        <label class="col-sm-1 col-form-label">Nama RKA</label>
-                                        <div class="col-sm-11">
-                                            <select class="form-control select2" name="id_rka">
-                                                <?php foreach ($rka as $row_rka) { ?>
-                                                    <option value="<?= $row_rka->id_rka; ?>"><?= $row_rka->nama_rka; ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
+                                    <div class="form-group ">
+                                        <label>Nama RKA</label>
+                                        <input class="form-control" type="text" value="<?= $row_rka->nama_rka; ?>" readonly>
+                                        <input class="form-control" type="hidden" name="id_rka" value="<?= $row_rka->id_rka; ?>" readonly>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-1 col-form-label">Nama Rekening</label>
-                                        <div class="col-sm-11">
+                                    <div class="form-group">
+                                        <label>Nama Rekening</label>
                                             <select class="form-control select2" name="id_rekening">
                                                 <?php foreach ($rekening as $row_rekening) { ?>
                                                     <option value="<?= $row_rekening->id_rekening; ?>"><?= $row_rekening->uraian_rekening; ?></option>
                                                 <?php } ?>
                                             </select>
-                                        </div>
                                     </div>
+                                    <!-- <div class="form-group">
+                                        <label >Pagu yang diminta</label>
+                                        <input class="form-control" type="number">
+                                    </div> -->
+                                    
                                 </div>
+                            <?php } ?>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

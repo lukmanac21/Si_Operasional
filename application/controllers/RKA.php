@@ -67,6 +67,7 @@ class RKA extends CI_Controller
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
 		$data['rka']				= $this->main->get_data('tbl_rka');
 		$data['rekening']			= $this->main->get_data('tbl_rekening');
+		
 		$this->load->view('rka/tambahdetail', $data);
 	}
 	public function save_detail()
@@ -75,6 +76,7 @@ class RKA extends CI_Controller
 		$data['id_rekening']    = $this->input->post('id_rekening');
 
 		$this->main->insert_data('tbl_detail_rka', $data);
+		// echo $this->db->last_query();
 		redirect('rka/index');
 	}
 	public function edit_detail($id_detailrka)
