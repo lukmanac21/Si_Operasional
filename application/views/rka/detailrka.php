@@ -35,8 +35,8 @@
                                         <tr>
                                             <td><?= $row_detail_rka->kode_rekening; ?></td>
                                             <td><?= $row_detail_rka->uraian_rekening;; ?></td>
-                                            <td><?= number_format($row_detail_rka->total, 2, ',', '.'); ?></td>
-                                            <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('rka/detail_data/') . $row_detail_rka->id; ?>" class="btn btn-warning"> Detail</a>
+                                            <td><?= number_format($row_detail_rka->sub_total_detail, 2, ',', '.'); ?></td>
+                                            <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('rka/detail_sub_data/') . $row_detail_rka->id; ?>" class="btn btn-warning"> Detail</a>
                                                 <a style="color:white;" type="button" href="<?= site_url('rka/edit_detail/') . $row_detail_rka->id; ?>" class="btn btn-info"> Ubah</a>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row_detail_rka->id ?>"> Hapus</button</td> </tr> <?php } ?> </tbody> </table> </div> </div> </section> <?php foreach ($detail_rka as $row_detail_rka) { ?> <div class="modal fade" id="delete<?= $row_detail_rka->id ?>">
                                                     <div class="modal-dialog">

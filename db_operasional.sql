@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2020 at 02:13 AM
+-- Generation Time: Nov 11, 2020 at 04:58 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -127,6 +127,40 @@ INSERT INTO `tbl_barang` (`id_barang`, `id_jenis`, `id_kegiatan`, `id_satuan`, `
 (100, 1, 4, 1, '2019-04-18', 'RB951Ui -2HnD', '', 'TV7RB951U-2HND', '', '', '', '', '', 'INTL', 'EU', 'C:C2:DE:00:33:9C:0 :/ :CC:2D:E0:03:39:C5', '80F1088493D0/737/r2', '', '', 1, '', 'IMG_20190418_090939.jpg'),
 (101, 1, 4, 1, '2019-04-18', 'RB951Ui -2HnD', '', 'TV7RB951U-2HND', '', '', '', '', '', 'INTL', 'EU', 'C:C2:DE:00:33:AD:4/:CC:2D:E0:03:3A:D9', '80F108017223/737/r2', '', '', 1, '', 'IMG_20190418_090943.jpg'),
 (102, 1, 4, 1, '2019-04-18', 'RB951Ui -2HnD', '', 'TV7RB951U-2HND', '', '', '', '', '', 'INTL', 'EU', 'C:C2:DE:00:33:8A:6/:CC:2D:E0:03:38:AB', '80F10838B97C/737/r2', '', '', 1, '', 'IMG_20190418_090950.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_detail_rka`
+--
+
+CREATE TABLE `tbl_detail_rka` (
+  `id` int(11) NOT NULL,
+  `id_rka` int(11) NOT NULL,
+  `id_rekening` int(11) NOT NULL,
+  `sub_total_detail` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_detail_rka`
+--
+
+INSERT INTO `tbl_detail_rka` (`id`, `id_rka`, `id_rekening`, `sub_total_detail`) VALUES
+(8, 1, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_detail_sub_rka`
+--
+
+CREATE TABLE `tbl_detail_sub_rka` (
+  `id` int(11) NOT NULL,
+  `id_detail` int(11) NOT NULL,
+  `id_sub_rek` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `sub_total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -348,6 +382,26 @@ INSERT INTO `tbl_rekening` (`id_rekening`, `kode_rekening`, `uraian_rekening`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_rka`
+--
+
+CREATE TABLE `tbl_rka` (
+  `id_rka` int(11) NOT NULL,
+  `nama_rka` varchar(255) NOT NULL,
+  `pagu` int(11) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_rka`
+--
+
+INSERT INTO `tbl_rka` (`id_rka`, `nama_rka`, `pagu`, `total`) VALUES
+(1, 'Pengolahan data e-gov', 1000000, 800000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_role`
 --
 
@@ -413,7 +467,8 @@ INSERT INTO `tbl_sub_menu` (`id_sub_menu`, `id_menu`, `nama_sub_menu`, `link_sub
 (24, 2, 'Master Anggaran', 'Anggaran/index'),
 (25, 8, 'Pencatatan Barang', 'Barang/index'),
 (26, 8, 'Surat Keluar', 'Suratkeluar/index'),
-(27, 2, 'Master Jenis', 'Jenis/index');
+(27, 2, 'Master Jenis', 'Jenis/index'),
+(28, 8, 'Pencatatan RKA', 'RKA/index');
 
 -- --------------------------------------------------------
 
@@ -530,7 +585,8 @@ INSERT INTO `tbl_user_access` (`id_user_access`, `id_role`, `id_sub_menu`) VALUE
 (39, 2, 19),
 (40, 1, 25),
 (41, 1, 26),
-(42, 1, 27);
+(42, 1, 27),
+(43, 1, 28);
 
 --
 -- Indexes for dumped tables
@@ -547,6 +603,18 @@ ALTER TABLE `tbl_anggaran`
 --
 ALTER TABLE `tbl_barang`
   ADD PRIMARY KEY (`id_barang`);
+
+--
+-- Indexes for table `tbl_detail_rka`
+--
+ALTER TABLE `tbl_detail_rka`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_detail_sub_rka`
+--
+ALTER TABLE `tbl_detail_sub_rka`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_jenis`
@@ -595,6 +663,12 @@ ALTER TABLE `tbl_periode`
 --
 ALTER TABLE `tbl_rekening`
   ADD PRIMARY KEY (`id_rekening`);
+
+--
+-- Indexes for table `tbl_rka`
+--
+ALTER TABLE `tbl_rka`
+  ADD PRIMARY KEY (`id_rka`);
 
 --
 -- Indexes for table `tbl_role`
@@ -649,6 +723,18 @@ ALTER TABLE `tbl_barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
+-- AUTO_INCREMENT for table `tbl_detail_rka`
+--
+ALTER TABLE `tbl_detail_rka`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbl_detail_sub_rka`
+--
+ALTER TABLE `tbl_detail_sub_rka`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_jenis`
 --
 ALTER TABLE `tbl_jenis`
@@ -697,6 +783,12 @@ ALTER TABLE `tbl_rekening`
   MODIFY `id_rekening` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `tbl_rka`
+--
+ALTER TABLE `tbl_rka`
+  MODIFY `id_rka` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tbl_role`
 --
 ALTER TABLE `tbl_role`
@@ -712,7 +804,7 @@ ALTER TABLE `tbl_satuan`
 -- AUTO_INCREMENT for table `tbl_sub_menu`
 --
 ALTER TABLE `tbl_sub_menu`
-  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_sub_rek`
@@ -730,7 +822,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_user_access`
 --
 ALTER TABLE `tbl_user_access`
-  MODIFY `id_user_access` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_user_access` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
