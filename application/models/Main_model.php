@@ -106,8 +106,9 @@ class Main_model extends CI_Model
         return $query->result();
     }
     function get_data_rka()
-    {
+    {  
         $query = $this->db->select('tbl_rka.id_rka, tbl_rka.nama_rka, tbl_rka.pagu, sum(tbl_detail_rka.sub_total_detail) as total')->from('tbl_rka')->join('tbl_detail_rka','tbl_detail_rka.id_rka = tbl_rka.id_rka')->get();
+
         return $query->result();
     }
 
