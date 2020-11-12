@@ -25,12 +25,14 @@
                         </div>
                         <div class="card-body">
                             <form class="form-horizontal" role="form" action="<?= site_url('RKA/save_detail'); ?>" method="post">
-                                <?php foreach ($rka as $row_rka) { ?>
+
                                     <div class="card-body">
                                         <div class="form-group ">
                                             <label>Nama RKA</label>
+                                            <?php foreach ($rka as $row_rka) { ?>
                                             <input class="form-control" type="text" value="<?= $row_rka->nama_rka; ?>" readonly>
                                             <input class="form-control" type="hidden" name="id_rka" value="<?= $row_rka->id_rka; ?>" readonly>
+                                            <?php } ?>
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Rekening</label>
@@ -65,7 +67,6 @@
                                             <input class="form-control" type="number" id="sub_total" name="sub_total" readonly>
                                         </div>
                                     </div>
-                                <?php } ?>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
