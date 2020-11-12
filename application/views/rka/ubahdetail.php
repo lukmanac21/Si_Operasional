@@ -21,33 +21,52 @@
                 <div class="container-fluid">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data Detail RKA</h3>
+                            <h3 class="card-title">Ubah Data Detail RKA</h3>
                         </div>
                         <div class="card-body">
                             <form class="form-horizontal" role="form" action="<?= site_url('RKA/update_detail'); ?>" method="post">
-                                <input type="hidden" name="id_detail" value="<?= $detail_rka->id; ?>">
-                                <div class="card-body">
-                                    <div class="form-group row">
-                                        <label class="col-sm-1 col-form-label">Nama RKA</label>
-                                        <div class="col-sm-11">
-                                            <select class="form-control select2" name="id_rka">
-                                                <?php foreach ($rka as $row_rka) { ?>
-                                                    <option value="<?= $row_rka->id_rka; ?>" <?= ($row_rka->id_rka == $detail_rka->id_rka) ? 'selected' : '' ?>><?= $row_rka->nama_rka; ?></option>
-                                                <?php } ?>
-                                            </select>
+                                <input type="hidden" name="id_detail" value="<?= $detail_rka->id ?>">
+                                <?php foreach ($rka as $row_rka) { ?>
+                                    <div class="card-body">
+                                        <div class="form-group ">
+                                            <label>Nama RKA</label>
+                                            <input class="form-control" type="text" value="<?= $row_rka->nama_rka; ?>" readonly>
+                                            <input class="form-control" type="hidden" name="id_rka" value="<?= $row_rka->id_rka; ?>" readonly>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-1 col-form-label">Nama Rekening</label>
-                                        <div class="col-sm-11">
+                                        <div class="form-group">
+                                            <label>Nama Rekening</label>
                                             <select class="form-control select2" name="id_rekening">
                                                 <?php foreach ($rekening as $row_rekening) { ?>
                                                     <option value="<?= $row_rekening->id_rekening; ?>" <?= ($row_rekening->id_rekening == $detail_rka->id_rekening) ? 'selected' : '' ?>><?= $row_rekening->uraian_rekening; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
+                                        <div class="form-group ">
+                                            <label>Keterangan Belanja</label>
+                                            <input class="form-control" type="text" name="keterangan" value="<?= $detail_rka->keterangan ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Satuan</label>
+                                            <select class="form-control select2" name="id_satuan">
+                                                <?php foreach ($satuan as $row_satuan) { ?>
+                                                    <option value="<?= $row_satuan->id_satuan; ?>" <?= ($row_satuan->id_satuan == $detail_rka->id_satuan) ? 'selected' : '' ?>><?= $row_satuan->nama_satuan; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Harga Satuan</label>
+                                            <input class="form-control" type="number" id="harga" name="harga" value="<?= $detail_rka->harga ?>">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Jumlah</label>
+                                            <input class="form-control" type="number" id="jumlah" name="jumlah" value="<?= $detail_rka->jumlah ?>">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Total</label>
+                                            <input class="form-control" type="number" id="sub_total" name="sub_total" value="<?= $detail_rka->sub_total_detail ?>" readonly>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -65,6 +84,15 @@
         <aside class="control-sidebar control-sidebar-dark">
         </aside>
         <?php $this->load->view('_partials/footer'); ?>
+        <script>
+            $('input#sub_total').on('click', function() {
+                var harga = $('input#harga').val()
+                var jumlah = $('input#jumlah').val()
+                var sub_total = harga * jumlah;
+
+                $('input#sub_total').val(sub_total)
+            })
+        </script>
 </body>
 
 </html>

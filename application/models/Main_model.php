@@ -47,11 +47,12 @@ class Main_model extends CI_Model
         $query = $this->db->select('*')->from($table)->join($table_join, $where)->get();
         return $query->result();
     }
-    function get_data_two($table, $table_join, $where, $table_joins, $wheres, $select = null)
+    function get_data_two($table, $table_join, $where, $table_joins, $wheres, $select = null, $group_by = null)
     {
-        if ($select == null) {
+        if ($select == null && $group_by == null) {
             $query = $this->db->select('*')->from($table)->join($table_join, $where)->join($table_joins, $wheres)->get();
         } else {
+            $this->db->group_by($group_by);
             $query = $this->db->select($select)->from($table)->join($table_join, $where)->join($table_joins, $wheres)->get();
         }
         return $query->result();
