@@ -13,7 +13,8 @@ class RKA extends CI_Controller
 	{
 		$id_role 				    = $this->session->userdata('id_role');
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
-		$data['rka'] 		        = $this->main->get_data('tbl_rka');
+		//$data['rka'] 		        = $this->main->get_data('tbl_rka');
+		$data['rka']				= $this->main->get_data_rka();
 		$this->load->view('rka/index', $data);
 	}
 	public function add_data()

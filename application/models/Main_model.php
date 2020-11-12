@@ -105,11 +105,12 @@ class Main_model extends CI_Model
         $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->where($where)->get();
         return $query->result();
     }
-    // function get_data_three_where($table, $table_join_one, $where_one, $table_join_two, $where_two, $table_join_three, $where_three, $where)
-    // {
-    //     $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->where($where)->get();
-    //     return $query->result();
-    // }
+    function get_data_rka()
+    {
+        $query = $this->db->select('tbl_rka.id_rka, tbl_rka.nama_rka, tbl_rka.pagu, sum(tbl_detail_rka.sub_total_detail) as total')->from('tbl_rka')->join('tbl_detail_rka','tbl_detail_rka.id_rka = tbl_rka.id_rka')->get();
+        return $query->result();
+    }
+
     function get_data_sub_detail($where)
     {
         // echo'<pre>';print_r($where);
