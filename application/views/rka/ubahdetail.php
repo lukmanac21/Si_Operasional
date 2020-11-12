@@ -85,12 +85,17 @@
         </aside>
         <?php $this->load->view('_partials/footer'); ?>
         <script>
-            $('input#sub_total').on('click', function() {
-                var harga = $('input#harga').val()
-                var jumlah = $('input#jumlah').val()
-                var sub_total = harga * jumlah;
-
-                $('input#sub_total').val(sub_total)
+            $(document).ready(function() {
+                $("#harga").on("input", function() {
+                    var harga = $(this).val()
+                    $('input#sub_total').val(harga)
+                })
+                $("#jumlah").on("input", function() {
+                    var harga = $('#harga').val()
+                    var jumlah = $(this).val()
+                    var subtotal = harga * jumlah
+                    $('input#sub_total').val(subtotal)
+                })
             })
         </script>
 </body>
