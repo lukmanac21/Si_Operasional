@@ -66,6 +66,15 @@ class Main_model extends CI_Model
         }
         return $query->result();
     }
+    function get_data_three_where($table, $table_join_one, $where_one, $table_join_two, $where_two, $table_join_three, $where_three, $select = null,$where)
+    {
+        if ($select == null) {
+            $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->where($where)->get();
+        } else {
+            $query = $this->db->select($select)->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->where($where)->get();
+        }
+        return $query->result();
+    }
     function get_data_join_where($table, $table_join, $where_join, $where)
     {
         $query = $this->db->select('*')->from($table)->join($table_join, $where_join)->where($where)->get();
@@ -96,11 +105,11 @@ class Main_model extends CI_Model
         $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->where($where)->get();
         return $query->result();
     }
-    function get_data_three_where($table, $table_join_one, $where_one, $table_join_two, $where_two, $table_join_three, $where_three, $where)
-    {
-        $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->where($where)->get();
-        return $query->result();
-    }
+    // function get_data_three_where($table, $table_join_one, $where_one, $table_join_two, $where_two, $table_join_three, $where_three, $where)
+    // {
+    //     $query = $this->db->select('*')->from($table)->join($table_join_one, $where_one)->join($table_join_two, $where_two)->join($table_join_three, $where_three)->where($where)->get();
+    //     return $query->result();
+    // }
     function get_data_sub_detail($where)
     {
         // echo'<pre>';print_r($where);

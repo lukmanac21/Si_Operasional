@@ -58,8 +58,10 @@ class RKA extends CI_Controller
 	{
 		$id_role 				    = $this->session->userdata('id_role');
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
-		$data['detail_rka'] 		= $this->main->get_data_three('tbl_detail_rka', 'tbl_rka', 'tbl_detail_rka.id_rka = tbl_rka.id_rka', 'tbl_rekening', 'tbl_detail_rka.id_rekening = tbl_rekening.id_rekening', 'tbl_satuan', 'tbl_detail_rka.id_satuan = tbl_satuan.id_satuan', 'tbl_detail_rka.id AS id, tbl_detail_rka.id_rekening AS id_rekening, sub_total_detail, kode_rekening, uraian_rekening, nama_satuan, jumlah, harga, keterangan', 'id_rekening');
+		$where 						= array('tbl_detail_rka.id_rka '=> $id);
+		$data['detail_rka'] 		= $this->main->get_data_three_where('tbl_detail_rka', 'tbl_rka', 'tbl_detail_rka.id_rka = tbl_rka.id_rka', 'tbl_rekening', 'tbl_detail_rka.id_rekening = tbl_rekening.id_rekening', 'tbl_satuan', 'tbl_detail_rka.id_satuan = tbl_satuan.id_satuan', 'tbl_detail_rka.id AS id, tbl_detail_rka.id_rekening AS id_rekening, sub_total_detail, kode_rekening, uraian_rekening, nama_satuan, jumlah, harga, keterangan',$where);
 		$this->load->view('rka/detailrka', $data);
+		// echo $this->db->last_query();
 	}
 	public function add_detail()
 	{
@@ -81,9 +83,11 @@ class RKA extends CI_Controller
 		$data['harga']    			= $this->input->post('harga');
 		$data['sub_total_detail']   = $this->input->post('sub_total');
 
+		$id_rka						= $this->input->post('id_rka');
+
 		$this->main->insert_data('tbl_detail_rka', $data);
-		// echo $this->db->last_query();
-		redirect('rka/index');
+		//echo $this->db->last_query();
+		redirect('rka/detail_data/'.$id_rka);
 	}
 	public function edit_detail($id_detailrka)
 	{

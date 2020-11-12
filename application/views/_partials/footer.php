@@ -54,6 +54,20 @@
 
 <!-- Page Script -->
 <script>
+            $(document).ready(function() {
+                $("#harga").on("input", function() {
+                    var harga = $(this).val()
+                    $('input#sub_total').val(harga)
+                })
+                $("#jumlah").on("input", function() {
+                    var harga = $('#harga').val()
+                    var jumlah = $(this).val()
+                    var subtotal = harga * jumlah
+                    $('input#sub_total').val(subtotal)
+                })
+            })
+        </script>
+<script>
    $(document).on('change', 'select[name=id_sub_rek]', function(e){
        var anggaran = $('option:selected', this).attr('anggaran');
        
