@@ -58,12 +58,7 @@ class RKA extends CI_Controller
 	{
 		$id_role 				    = $this->session->userdata('id_role');
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
-<<<<<<< HEAD
-		$data['detail_rka'] 		= $this->main->get_data_two('tbl_detail_rka', 'tbl_rka', 'tbl_detail_rka.id_rka = tbl_rka.id_rka', 'tbl_rekening', 'tbl_detail_rka.id_rekening = tbl_rekening.id_rekening', 'tbl_detail_rka.id AS id, total, kode_rekening, uraian_rekening, sub_total_detail');
-		// echo $this->db->last_query();
-=======
 		$data['detail_rka'] 		= $this->main->get_data_three('tbl_detail_rka', 'tbl_rka', 'tbl_detail_rka.id_rka = tbl_rka.id_rka', 'tbl_rekening', 'tbl_detail_rka.id_rekening = tbl_rekening.id_rekening', 'tbl_satuan', 'tbl_detail_rka.id_satuan = tbl_satuan.id_satuan', 'tbl_detail_rka.id AS id, tbl_detail_rka.id_rekening AS id_rekening, sub_total_detail, kode_rekening, uraian_rekening, nama_satuan, jumlah, harga, keterangan', 'id_rekening');
->>>>>>> ba9419c (-)
 		$this->load->view('rka/detailrka', $data);
 	}
 	public function add_detail()
@@ -122,12 +117,12 @@ class RKA extends CI_Controller
 		$this->main->delete_data('tbl_detail_rka', $where);
 		redirect('rka/detail_data/' . $this->input->post('id'));
 	}
-	public function detail_sub_data($id){
+	public function detail_sub_data($id)
+	{
 		$id_role 				    = $this->session->userdata('id_role');
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
 		$data['detail_rka'] 		= $this->main->get_data_two('tbl_detail_rka', 'tbl_rka', 'tbl_detail_rka.id_rka = tbl_rka.id_rka', 'tbl_rekening', 'tbl_detail_rka.id_rekening = tbl_rekening.id_rekening', 'tbl_detail_rka.id AS id, total, kode_rekening, uraian_rekening, sub_total_detail');
 		// echo $this->db->last_query();
 		$this->load->view('rka/detailsubrka', $data);
-
 	}
 }
