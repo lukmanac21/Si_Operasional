@@ -29,32 +29,28 @@
               </tr>
               </thead>
               <tbody>
-              <?php if($rka != null) : ?>
-                <?php foreach($rka as $row_rka)
-                {
-                    ?>
-
+                <?php
+                if (is_array($rka) && count($rka) >= 1) {
+                 foreach($rka as $row_rka){
+                  $sisa = $row_rka->pagu - $row_rka->total;?>
                     <tr>
                         <td><?= $row_rka->nama_rka;?></td>
                         <td><?= number_format($row_rka->pagu,2,',','.');?></td>
                         <td><?= number_format($row_rka->total,2,',','.');?></td>
-                        <td><?= number_format($row_rka->sisa,2,',','.');?></td>
-                        <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('rka/detail_data/').$row_rka->id_rka ;?>" class="btn btn-warning" > Detail</a>
+                        <td><?= number_format($sisa,2,',','.');?></td>
+                        <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('rka/detail_data/').$row_rka->id_rka ;?>" class="btn btn-warning" > Rincian</a>
                         <a style="color:white;" type="button" href="<?= site_url('rka/edit_data/').$row_rka->id_rka ;?>" class="btn btn-info" > Ubah</a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row_rka->id_rka?>"> Hapus</button</td>
                     </tr>
-                <?php } ?>
-                <?php else : ?>
-                  <tr>
-                    <td colspan="5" class="text-center">Data Tidak ditemukan</td>
-                  </tr>
-                <?php endif; ?>
+                <?php } }  else { ?>
+                <?= "No Data "?>
+                 <?php }?>
+                
               </tbody>
             </table>
           </div>
       </div>
     </section>
-    <?php if($rka != null) : ?>
     <?php foreach($rka as $row_rka){?>
     <div class="modal fade" id="delete<?= $row_rka->id_rka?>">
       <div class="modal-dialog">
@@ -79,7 +75,6 @@
       </div>
     </div>
     <?php } ?>
-    <?php endif; ?>
     </div>
   <aside class="control-sidebar control-sidebar-dark">
   </aside>

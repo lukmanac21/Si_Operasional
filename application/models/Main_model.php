@@ -107,8 +107,12 @@ class Main_model extends CI_Model
     }
     function get_data_rka()
     {  
-        $query = $this->db->select('tbl_rka.id_rka, tbl_rka.nama_rka, tbl_rka.pagu, sum(tbl_detail_rka.sub_total_detail) as total')->from('tbl_rka')->join('tbl_detail_rka','tbl_detail_rka.id_rka = tbl_rka.id_rka')->get();
-
+        $query = $this->db->select('tbl_rka.id_rka, tbl_rka.nama_rka, tbl_rka.pagu, sum(tbl_detail_rka.sub_total_detail) as total')->from('tbl_rka')->join('tbl_detail_rka','tbl_detail_rka.id_rka = tbl_rka.id_rka','LEFT')->get();
+        return $query->result();
+    }
+    function get_data_rka_where($id)
+    {  
+        $query = $this->db->select('tbl_rka.id_rka, tbl_rka.nama_rka, tbl_rka.pagu, sum(tbl_detail_rka.sub_total_detail) as total')->from('tbl_rka')->join('tbl_detail_rka','tbl_detail_rka.id_rka = tbl_rka.id_rka','LEFT')->where('tbl_rka.id_rka = ',$id)->get();
         return $query->result();
     }
 

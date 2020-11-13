@@ -17,6 +17,18 @@
                             <h3 class="card-title">Data Detail Operasional RKA</h3>
                         </div>
                         <div class="card-body">
+                        <table cellspacing="0" cellpadding="0">
+                            <?php foreach ($rka as $row_rka) {
+                                $sisa = $row_rka->pagu - $row_rka->total; ?>
+                                <tbody>
+                                <tr><td>Nama RKA </td><td> &nbsp; :</td><td> &nbsp; <?= $row_rka->nama_rka?></td></tr>
+                                <tr><td>Pagu Yang Diminta</td><td> &nbsp; :</td><td> &nbsp; <?=  number_format($row_rka->pagu,2,',','.');?></td></tr>
+                                <tr><td>Total</td><td> &nbsp; :</td><td> &nbsp; <?=  number_format($row_rka->total,2,',','.');?></td></tr>
+                                <tr><td>Sisa</td><td> &nbsp; :</td><td> &nbsp; <?= number_format($sisa,2,',','.');?></td></tr>
+                                </tbody>
+                            <?php } ?>
+                        </table>
+                        <hr>
                             <table id="example1" class="table table-bordered table-striped">
                                 <button type="button" class="btn btn-primary" onclick="window.location.href='<?= site_url(); ?>RKA/add_detail';">Tambah</button>
                                 <br>

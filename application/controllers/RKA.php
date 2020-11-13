@@ -14,20 +14,7 @@ class RKA extends CI_Controller
 		$id_role 				    = $this->session->userdata('id_role');
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
 		//$data['rka'] 		        = $this->main->get_data('tbl_rka');
-		$rka						= $this->main->get_data_rka();
-		
-		foreach ($rka as $r) {
-			if($r->id_rka == null) {
-				$data['rka'] = null;
-			} else {
-				$data['rka'] = [
-					'nama_rka' => $r->nama_rka,
-					'pagu' => $r->pagu,
-					'total' => $r->total,
-					'sisa' => $r->pagu - $r->total 
-				];
-			}
-		}
+		$data['rka']				= $this->main->get_data_rka();
 		$this->load->view('rka/index', $data);
 	}
 	public function add_data()
@@ -75,6 +62,7 @@ class RKA extends CI_Controller
 		$data['menu'] 			    = $this->main->get_menu_selected($id_role);
 		$where 						= array('tbl_detail_rka.id_rka '=> $id);
 		$data['detail_rka'] 		= $this->main->get_data_three_where('tbl_detail_rka', 'tbl_rka', 'tbl_detail_rka.id_rka = tbl_rka.id_rka', 'tbl_rekening', 'tbl_detail_rka.id_rekening = tbl_rekening.id_rekening', 'tbl_satuan', 'tbl_detail_rka.id_satuan = tbl_satuan.id_satuan', 'tbl_detail_rka.id AS id, tbl_detail_rka.id_rekening AS id_rekening, sub_total_detail, kode_rekening, uraian_rekening, nama_satuan, jumlah, harga, keterangan, tbl_rka.id_rka',$where);
+		$data['rka']				= $this->main->get_data_rka_where($id);
 		$this->load->view('rka/detailrka', $data);
 		// echo $this->db->last_query();
 	}
