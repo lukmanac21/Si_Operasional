@@ -58,7 +58,7 @@ class Anggaran extends CI_Controller {
 		redirect('anggaran/index');
 	}
 	public function delete_data(){
-		$where['id_sub_rek'] 	= $this->input->post('id_sub_rek');
+		$where['id_anggaran'] 	= $this->input->post('id_anggaran');
 		
 		$this->main->delete_data('tbl_anggaran',$where);
 		redirect('anggaran/index');
