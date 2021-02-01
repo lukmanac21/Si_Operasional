@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,32 +13,26 @@
       <div class="container-fluid">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Data Surat Keluar</h3>
+            <h3 class="card-title">Data Master jenisalat</h3>
           </div>
           <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
-              <button type="button" class="btn btn-primary" onclick="window.location.href='<?= site_url();?>/SuratKeluar/add_data';">Tambah</button>
+              <button type="button" class="btn btn-primary" onclick="window.location.href='<?= site_url();?>/jenisalat/add_data';">Tambah</button>
               <br>
                 <br>
               <thead>
               <tr>
-                <th>Tanggal Surat Keluar</th>
-                <th>Nama OPD</th>
-                <th>Penaggung Jawab</th>                
-                <th style="text-align:center;">Cetak</th>
+                <th>Nama jenisalat</th>
                 <th style="text-align:center;">Ubah</th>
                 <th style="text-align:center;">Hapus</th>
               </tr>
               </thead>
               <tbody>
-                <?php foreach($surat_keluar as $row_surat_keluar){?>
+                <?php foreach($jenisalat as $row_jenisalat){?>
                     <tr>
-                        <td><?= $row_surat_keluar->tgl_surat;?></td>
-                        <td><?= $row_surat_keluar->nama_opd;?></td>
-                        <td><?= $row_surat_keluar->nama_pelaksana;?></td>
-                        <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('SuratKeluar/cetak_data/').$row_surat_keluar->id_surat ;?>" class="btn btn-warning" > Cetak</a</td>
-                        <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('SuratKeluar/edit_data/').$row_surat_keluar->id_surat ;?>" class="btn btn-info" > Ubah</a</td>
-                        <td style="text-align:center;"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row_surat_keluar->id_surat?>"> Hapus</button</td>
+                        <td><?= $row_jenisalat->nama_jenisalat;?></td>
+                        <td style="text-align:center;"><a style="color:white;" type="button" href="<?= site_url('jenisalat/edit_data/').$row_jenisalat->id_jenisalat ;?>" class="btn btn-info" > Ubah</a</td>
+                        <td style="text-align:center;"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $row_jenisalat->id_jenisalat?>"> Hapus</button</td>
                     </tr>
                 <?php } ?>
               </tbody>
@@ -45,8 +40,8 @@
           </div>
       </div>
     </section>
-    <?php foreach($surat_keluar as $row_surat_keluar){?>
-    <div class="modal fade" id="delete<?= $row_surat_keluar->id_surat?>">
+    <?php foreach($jenisalat as $row_jenisalat){?>
+    <div class="modal fade" id="delete<?= $row_jenisalat->id_jenisalat?>">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -55,10 +50,10 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form method="post" action="<?= site_url('SuratKeluar/delete_data');?>">
+          <form method="post" action="<?= site_url('jenisalat/delete_data');?>">
           <div class="modal-body">
-            <p>Hapus data Surat Keluar Tanggal <?= $row_surat_keluar->tgl_surat?> ? </p>
-            <input type="hidden" name="id_surat" value="<?= $row_surat_keluar->id_surat ;?>">
+            <p>Hapus data jenisalat <?= $row_jenisalat->nama_jenisalat?> ? </p>
+            <input type="hidden" name="id_jenisalat" value="<?= $row_jenisalat->id_jenisalat ;?>">
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

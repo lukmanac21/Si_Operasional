@@ -20,12 +20,12 @@
             <h3 class="card-title">Tambah Data Surat Keluar</h3>
           </div>
             <div class="card-body">
-              <form class="form-horizontal" role="form" action="<?= site_url('Submenu/save_data');?>" method="post">
+              <form class="form-horizontal" role="form" action="<?= site_url('suratkeluar/save_data');?>" method="post">
                   <div class="card-body">
                   <div class="form-group row">
-                      <label class="col-sm-1 col-form-label">Nama OPD</label>
-                      <div class="col-sm-11">
-                      <select class="form-control select2" name="id_opd" style="width: 100%;">
+                      <label class="col-sm-2 col-form-label">Nama OPD</label>
+                      <div class="col-sm-10">
+                        <select class="form-control select2" name="id_opd" style="width: 100%;">
                             <?php foreach($opd as $row_opd){?>
                             <option value="<?= $row_opd->id_opd;?>"><?= $row_opd->nama_opd;?></option>
                             <?php } ?>
@@ -33,236 +33,139 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                      <label class="col-sm-1 col-form-label">Tanggal</label>
-                      <div class="col-sm-11">
+                      <label class="col-sm-2 col-form-label">Tanggal</label>
+                      <div class="col-sm-10">
                       <input type="date" class="form-control" name="tgl_surat" placeholder="Tanggal Surat" required>
                       </div>
                   </div>
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Pelaksana</label>
+                      <div class="col-sm-10">
+                      <input type="text" class="form-control" name="nama_pelaksana" placeholder="Pelaksana" required>
+                      </div>
+                  </div>
+                  <!-- <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Penanggung Jawab</label>
+                      <div class="col-sm-10">
+                      <input type="text" class="form-control" name="penangung_jawab" placeholder="Penanggung Jawab" required>
+                      </div>
+                  </div> -->
                   <hr>
                   <div class="form-group row">
-                    <label class="col-sm-1 col-form-label">Kegiatan</label>
-                    <div class="col-sm-2">
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="survey" value="Survey">
-                            <label for="survey" class="custom-control-label">Survey</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="instalasi" value="Instalasi">
-                            <label for="instalasi" class="custom-control-label">Instalasi</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="maintenance" value="Maintenance">
-                            <label for="maintenance" class="custom-control-label">Maintenance</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="trouble" value="Trouble Shooting">
-                            <label for="trouble" class="custom-control-label">Trouble Shooting</label>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="lainnya" value="Lainnya">
-                            <label for="lainnya" class="custom-control-label">Lainnya</label>
-                            <input id='other-text' placeholder='Masukan Kegiatan' type='text' class="custom-control-label" />
-                        </div>
+                    <label class="col-sm-2 col-form-label">Kegiatan</label>
+                    <div class="col-sm-10">
+                        <select class="select2" name="jenis_kegiatan[]" multiple="multiple" data-placeholder="Pilih Kegiatan" style="width: 100%;">
+                        <?php foreach($ket_kegiatan as $row_keg){?>
+                            <option value="<?= $row_keg->id_keg;?>"><?= $row_keg->nama_keg;?></option>
+                            <?php } ?>
+                        </select>
                     </div>
                   </div>
                     <div class="form-group row">
-                        <label class="col-sm-1 col-form-label">Ket Kegiatan</label>
-                        <label class="col-sm-11 col-form-label">1. Check Link Fiber Optic / Wireless Status</label>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label> 
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg1opt1" name="keg1">
-                                <label for="keg1opt1" class="custom-control-label">Normal</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg1opt2" name="keg1">
-                                <label for="keg1opt2" class="custom-control-label">Intermittent</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg1opt3" name="keg1">
-                                <label for="keg1opt3" class="custom-control-label">Latency ms to Gateway</label>
-                            </div>
+                        <label class="col-sm-2 col-form-label">Keterangan Kegiatan</label>
+                        <div class="col-sm-10">
+                        <label>1. Check Link Fiber Optic / Wireless Status</label>
+                        <select class="form-control select2" name="check_fiber" style="width: 100%;">
+                            <option value="Normal">Normal</option>
+                            <option value="Intermittent">Intermittent</option>
+                            <option value="Latency ms to Gateway">Latency ms to Gateway</option>
+                        </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label>
-                        <label class="col-sm-11 col-form-label">2. Check Main Router / Router Status</label>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label> 
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg2opt1" name="keg2">
-                                <label for="keg2opt1" class="custom-control-label">Normal</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg2opt2" name="keg2">
-                                <label for="keg2opt2" class="custom-control-label">Problem</label>
-                            </div>
-                        </div>
-                        <label class="col-sm-0.5 col-form-label">Note</label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control" name="catatan_router" placeholder="" required>
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                        <label>2. Check Main Router / Router Status</label>
+                        <select class="form-control select2" name="check_router" style="width: 100%;">
+                            <option value="Normal">Normal</option>
+                            <option value="Intermittent">Intermittent</option>
+                        </select>
+                        <label>Catatan</label>
+                        <input type="text" class="form-control" name="note_router" placeholder="Catatan">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label>
-                        <label class="col-sm-11 col-form-label">3. Check NMS (Network Management System)</label>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label> 
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg3opt1" name="keg3">
-                                <label for="keg3opt1" class="custom-control-label">Normal</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg3opt2" name="keg3">
-                                <label for="keg3opt2" class="custom-control-label">Problem</label>
-                            </div>
-                        </div>
-                        <label class="col-sm-0.5 col-form-label">Note</label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control" name="catatan_nms" placeholder="" required>
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                        <label>3. Check Bandwidth Limiter</label> 
+                        <select class="form-control select2" name="check_bandwidth" style="width: 100%;">
+                            <option value="Normal">Normal</option>
+                            <option value="Problem">Problem</option>
+                        </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label>
-                        <label class="col-sm-11 col-form-label">4. Check Finger Status</label>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label> 
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg4opt1" name="keg4">
-                                <label for="keg4opt1" class="custom-control-label">Normal</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg4opt2" name="keg4">
-                                <label for="keg4opt2" class="custom-control-label">Problem</label>
-                            </div>
-                        </div>
-                        <label class="col-sm-0.5 col-form-label">Note</label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control" name="catatan_finger" placeholder="" required>
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                        <label>4. Check Firewall (Network Management System)</label> 
+                        <select class="form-control select2" name="check_firewall" style="width: 100%;">
+                            <option value="Normal">Normal</option>
+                            <option value="Problem">Problem</option>
+                        </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label>
-                        <label class="col-sm-11 col-form-label">5. Check Wireless (Wifi Area)</label>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-1 col-form-label"></label> 
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg5opt1" name="keg5">
-                                <label for="keg5opt1" class="custom-control-label">Normal</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-radio">
-                                <input class="custom-control-input" type="radio" id="keg5opt2" name="keg5">
-                                <label for="keg5opt2" class="custom-control-label">Problem</label>
-                            </div>
-                        </div>
-                        <label class="col-sm-0.5 col-form-label">Note</label>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control" name="catatan_wifi" placeholder="" required>
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                        <label>5. Check Hostpot</label> 
+                        <select class="form-control select2" name="check_hotspot" style="width: 100%;">
+                            <option value="Normal">Normal</option>
+                            <option value="Problem">Problem</option>
+                        </select>
+                        <label>Catatan NMS</label>
+                        <input type="text" class="form-control" name="note_nms" placeholder="Catatan">
                         </div>
                     </div>
                     <div class="form-group row">
-                    <label class="col-sm-1 col-form-label">Alat yang dibawa</label>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="lantester" value="Lan Tester">
-                                <label for="lantester" class="custom-control-label">Lan Tester</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="obengplus" value="Obeng +">
-                                <label for="obengplus" class="custom-control-label">Obeng +</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="obengmin" value="Obeng -">
-                                <label for="obengmin" class="custom-control-label">Obeng -</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="obengset" value="Obeng set">
-                                <label for="obengset" class="custom-control-label">Obeng Set</label>
-                            </div>
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                        <label>6. Check Finger Status</label>
+                        <select class="form-control select2" name="check_finger" style="width: 100%;">
+                            <option value="Normal">Normal</option>
+                            <option value="Problem">Problem</option>
+                        </select>
+                        <label>Catatan</label>
+                        <input type="text" class="form-control" name="note_finger" placeholder="Catatan">
                         </div>
                     </div>
                     <div class="form-group row">
-                    <label class="col-sm-1 col-form-label"></label>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="tangpotong" value="Tang Potong">
-                                <label for="tangpotong" class="custom-control-label">Tang Potong</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="tangbiasa" value="Tang Biasa">
-                                <label for="tangbiasa" class="custom-control-label">Tang Biasa</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="tangcucut" value="Tang Cucut">
-                                <label for="tangcucut" class="custom-control-label">Tang Cucut</label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input kegiatan" name="kegiatan" type="checkbox" id="tangkrimping" value="Tang Krimping">
-                                <label for="tangkrimping" class="custom-control-label">Tang Krimping</label>
-                            </div>
+                        <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                        <label>7. Check Wireless (Wifi Area)</label>
+                        <select class="form-control select2" name="checkfiber" style="width: 100%;">
+                            <option value="Normal">Normal</option>
+                            <option value="Problem">Problem</option>
+                        </select>
+                        <label>Catatan</label>
+                        <input type="text" class="form-control" name="catatan_router" placeholder="Catatan">
                         </div>
                     </div>
                     <div class="form-group row">
-                    <label class="col-sm-1 col-form-label"></label>
-                        <div class="col-sm-3">
-                            <input type="number" class="form-control" name="jumlahkonektor" placeholder="Jumlah Konektor" required>
+                    <label class="col-sm-2 col-form-label">Alat yang dibawa</label>
+                    <div class="col-sm-10">
+                        <select class="select2" multiple="multiple" name="jenis_alat[]" data-placeholder="Pilih Alat" style="width: 100%;">
+                        <?php foreach($tools as $row_tools){?>
+                            <option value="<?= $row_tools->id_jenisalat;?>"><?= $row_tools->nama_jenisalat;?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" name="jml_konektor" placeholder="Jumlah Konektor" required>
                         </div>
-                        <div class="col-sm-3">
-                            <input type="number" class="form-control" name="panjangutp" placeholder="Panjang Utp" required>
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control" name="lain-lain" placeholder="Lain - Lain" required>
+                        <div class="col-sm-5">
+                            <input type="number" class="form-control" name="jml_utp" placeholder="Panjang Utp" required>
                         </div>
                     </div>
                     <hr>
                     <div class="form-group row">
-                        <label class="col-sm-1 col-form-label">Kegiatan Lainnya</label>
-                        <div class="col-md-9">
+                        <label class="col-sm-2 col-form-label">Kegiatan Lainnya</label>
+                        <div class="col-md-10">
                             <div class="card card-primary card-outline">
                                 <div class="form-group">
-                                    <textarea id="compose-textarea" class="form-control" style="height: 300px">
+                                    <textarea id="compose-textarea" name="note_tambahan" class="form-control" style="height: 300px">
                                     </textarea>
                                 </div>
                             </div>

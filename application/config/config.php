@@ -37,6 +37,7 @@ $config['base_url'] = 'http://localhost/si_operasional/';
 */
 $config['index_page'] = '';
 
+
 /*
 |--------------------------------------------------------------------------
 | URI PROTOCOL
@@ -136,7 +137,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = 'vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------

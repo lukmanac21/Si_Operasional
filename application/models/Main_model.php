@@ -17,6 +17,14 @@ class Main_model extends CI_Model
         $query = $this->db->get_where($table, $where);
         return $query->row_array();
     }
+    function get_data_detail_kegiatan_surat($id){
+        $query = $this->db->select('kg.nama_keg')->from('tbl_ket_kegiatan kg')->join('tbl_detail_kegiatan dk','dk.id_kegiatan = kg.id_keg')->where('id_surat',$id)->get();
+        return $query->result();
+    }
+    function get_data_detail_alat_surat($id){
+        $query = $this->db->select('ja.nama_jenisalat')->from('tbl_detail_alat da')->join('tbl_jenisalat ja','da.id_jenis = ja.id_jenisalat')->where('id_surat',$id)->get();
+        return $query->result();
+    }      
     function get_data($table)
     {
         $query = $this->db->get($table);
@@ -195,6 +203,25 @@ class Main_model extends CI_Model
         $this->db->join('tbl_jenis', 'tbl_barang.id_jenis = tbl_jenis.id_jenis');
         $this->db->join('tbl_satuan', 'tbl_barang.id_satuan = tbl_satuan.id_satuan');
         $this->db->order_by('tbl_jenis.nama_jenis ASC, tbl_barang.nama_barang ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function print_data_surat($id){
+        $this->db->select('*');
+        $this->db->from('tbl_surat_keluar');
+        $this->db->join('tbl_opd','tbl_surat_keluar.id_opd = tbl_opd.id_opd');
+        $this->db->where('id_surat',$id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function print_data_detail($id){
+        $this->db->select('*');
+        $this->db->from('tbl_surat_keluar');
+        $this->db->join('tbl_detail_alat', 'tbl_surat_keluar.id_surat = tbl_detail_alat.id_surat');
+        $this->db->join('tbl_jenisalat', 'tbl_detail_alat.id_jenis = tbl_jenisalat.id_jenisalat');
+        $this->db->join('tbl_detail_kegiatan', 'tbl_surat_keluar.id_surat = tbl_detail_kegiatan.id_surat');
+        $this->db->join('tbl_ket_kegiatan', 'tbl_detail_kegiatan.id_kegiatan = tbl_ket_kegiatan.id_keg');
+        $this->db->where('tbl_surat_keluar.id_surat',$id);
         $query = $this->db->get();
         return $query->result();
     }
